@@ -1,9 +1,9 @@
 #!/bin/bash
 
+cd buffer/
 if ! rclone check playlist:ffradio/music/ ./song_buffer/ || ! rclone check playlist:ffradio/video/ ./video_buffer/; then
     
     ### BUFFER UPDATE ###
-    cd buffer/
     rclone sync playlist:ffradio/music/ ./song_buffer/
     rclone sync playlist:ffradio/video/ ./video_buffer/
 

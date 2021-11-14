@@ -14,7 +14,10 @@ fi
 
 while(true); do
     if [ ${count} -eq 0 ]; then
-        mv buffer/playlist.mp4 playlist.mp4
+        if test -f buffer/playlist.mp4; then
+            rm playlist.mp4
+            mv buffer/playlist.mp4 playlist.mp4
+        fi
 
         ./renderer.sh &
         pid=$!
