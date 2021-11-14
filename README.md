@@ -30,12 +30,9 @@ You will also need a folder *in you google drive* called ffradio, inside that fo
 ## ffradio setup
 After having correctly setup rclone you can run the setup script and the render script.
 ```bash
-# cd in the ffradio folder and run the setup script to generate all needed folders
+# cd in the ffradio folder and run the setup script to generate all needed folders and render a first palylist
 $ cd ffradio
 $ ./setup.sh
-
-# run the renderer script to render a first palylist.mp4 to in the buffer/ folder to then stream
-$ ./renderer.sh
 ```
 
 # Running the scripts

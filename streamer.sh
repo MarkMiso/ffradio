@@ -13,13 +13,13 @@ else
 fi
 
 while(true); do
-    if test -f buffer/playlist.mp4 && [ ${count} -eq 0 ]; then
+    if [ ${count} -eq 0 ]; then
         mv buffer/playlist.mp4 playlist.mp4
 
         ./renderer.sh &
         pid=$!
-
-        echo "renderer running" 
+        echo "renderer running"
+         
         stream playlist.mp4
     else
         cp video/error.mp4 error.mp4
