@@ -22,7 +22,7 @@ while(true); do
          
         stream playlist.mp4
     else
-        cp video/error.mp4 error.mp4
+        cp buffer/video_buffer/error.mp4 error.mp4
         stream error.mp4
     fi
     count=$(ps -A| grep ${pid} |wc -l)
