@@ -2,6 +2,7 @@
 
 echo "renderer running"
 ### BUFFER UPDATE ###
+cd buffer/
 rclone sync playlist:ffradio/music/ ./song_buffer/
 rclone sync playlist:ffradio/video/ ./video_buffer/
 
