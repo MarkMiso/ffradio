@@ -14,19 +14,16 @@ fi
 
 while(true); do
     if test -f buffer/playlist.mp4 && [ ${count} -eq 0 ]; then
-        cp buffer/playlist.mp4 playlist.mp4
-        echo "renderer running" 
+        mv buffer/playlist.mp4 playlist.mp4
 
         ./renderer.sh &
         pid=$!
 
+        echo "renderer running" 
         stream playlist.mp4
     else
         cp video/error.mp4 error.mp4
         stream error.mp4
     fi
     count=$(ps -A| grep ${pid} |wc -l)
-    #echo ${count}
 done
-
-

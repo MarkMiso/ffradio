@@ -1,18 +1,13 @@
 #!/bin/bash
 
-### BUFFER CLEANUP AND UPDATE ###
-rm -r buffer
-mkdir buffer
-mkdir buffer/song_buffer
-mkdir buffer/video_buffer
-printf "ffconcat version 1.0\n" > buffer/song_buffer.txt
-touch buffer/song_buffer.srt
-cp -r video/. buffer/video_buffer/
-cp -r music/. buffer/song_buffer/
+### PLAYLIST CREATION ###
+cd buffer/
+rm song_buffer.txt
+printf "ffconcat version 1.0\n" > song_buffer.txt
+rm song_buffer.srt
+touch song_buffer.srt
 
-### PLAYLIST SETUP ###
-cd buffer/song_buffer 
-
+cd song_buffer/
 counter=1
 duration=0.0
 for f in $(ls *.mp3 | shuf); do
@@ -53,3 +48,7 @@ ffmpeg -hide_banner -loglevel error -stream_loop -1 -i video_buffer/loop.mp4 -f 
     -shortest -map 0:v:0 -map 1:a:0 \
     -c:v libx264 -preset veryfast -crf 20 \
     -c:a copy playlist.mp4
+
+### BUFFER UPDATE ###
+rclone sync playlist:ffradio/music/ ./song_buffer/
+rclone sync playlist:ffradio/video/ ./video_buffer/
