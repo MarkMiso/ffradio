@@ -48,7 +48,7 @@ $ ./streamer.sh
 
 > Note that once you close the terminal the stream will stop
 
-## as a backgroudn process
+## as a background process
 ```bash
 $ cd ffradio/
 $ ./streamer.sh >dev/null 2>&1 &
@@ -57,5 +57,5 @@ $ ./streamer.sh >dev/null 2>&1 &
 ## in a headless server as a background process using ssh
 ```bash
 # start the streamer script as a background process in your server
-$ ssh user@server "cd ffradio/; ./streamer.sh >dev/null 2>&1 &"
+$ ssh user@server "cd /home/user/ffradio/; ./streamer.sh >dev/null 2>&1 &"
 ```
