@@ -3,11 +3,11 @@
 if ! rclone check playlist:ffradio/music/ ./song_buffer/ || ! rclone check playlist:ffradio/video/ ./video_buffer/; then
     
     ### BUFFER UPDATE ###
+    cd buffer/
     rclone sync playlist:ffradio/music/ ./song_buffer/
     rclone sync playlist:ffradio/video/ ./video_buffer/
 
     ### PLAYLIST CREATION ###
-    cd buffer/
     rm song_buffer.txt
     printf "ffconcat version 1.0\n" > song_buffer.txt
     rm song_buffer.srt
