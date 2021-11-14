@@ -14,14 +14,10 @@ fi
 
 while(true); do
     if [ ${count} -eq 0 ]; then
-        if test -f buffer/playlist.mp4; then
-            rm playlist.mp4
-            mv buffer/playlist.mp4 playlist.mp4
-        fi
+        mv buffer/playlist.mp4 playlist.mp4
 
         ./renderer.sh &
         pid=$!
-        echo "renderer running"
          
         stream playlist.mp4
     else
