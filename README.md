@@ -22,6 +22,7 @@ You will also need a folder *in you google drive* called ffradio, inside that fo
     - the name of the files is used to generate subtitles to show the name of the song and artist on the video, it's important that the name of the music files follows this formatting `song_name-song_artist.mp3`
     - all underscore `_` characters will be rendered on the video as space ` ` characters
     - all dash `-` characters will be rendered on the video ad endline `\n` characters
+    - any other character excluding alphanumeric and the comma `,` will probalbly cause issues.
 - video
     - this folder will contain 2 mp4 files
     - `loop.mp4` will be the main video loop to display

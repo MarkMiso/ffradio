@@ -8,7 +8,7 @@ rclone sync playlist:ffradio/video/ ./video_buffer/
 
 ### PLAYLIST CREATION ###
 rm song_buffer.txt
-printf "ffconcat version 1.0\n" > song_buffer.txt
+touch song_buffer.txt
 rm song_buffer.srt
 touch song_buffer.srt
 
@@ -46,7 +46,7 @@ cd ..
 
 ### PLAYLIST RENDERING ###
 fadestart="$(echo "${duration} - 3" | bc)"
-ffmpeg -hide_banner -loglevel error -stream_loop -1 -i video_buffer/loop.mp4 -f concat -i song_buffer.txt -vf \
+ffmpeg -hide_banner -loglevel error -stream_loop -1 -i video_buffer/loop.mp4 -f concat -safe 0 -i song_buffer.txt -vf \
     "subtitles=song_buffer.srt:force_style='Fontsize=14,PrimaryColour=&Hffffff&,BorderStyle=1',\
     fade=t=in:st=0:d=3,\
     fade=t=out:st=${fadestart}:d=3" \
