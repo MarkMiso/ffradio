@@ -58,5 +58,5 @@ $ ./streamer.sh >dev/null 2>&1 &
 ## in a headless server as a background process using ssh
 ```bash
 # start the streamer script as a background process in your server
-$ ssh user@server "cd /home/user/ffradio/; ./streamer.sh >dev/null 2>&1 &"
+$ ssh user@server "cd /home/user/ffradio/; ./streamer.sh >/dev/null 2>&1 &"
 ```
